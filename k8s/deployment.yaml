@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-node-app-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: node-app
+  template:
+    metadata:
+      labels:
+        app: node-app
+    spec:
+      containers:
+      - name: node-app-container
+        image: gal-image:latest
+        ports:
+        - containerPort: 3000
+        envFrom:
+        - configMapRef:
+            name: node-app-config
+            KEY: VALUE
+        

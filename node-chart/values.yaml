@@ -1,0 +1,15 @@
+app:
+  Deployment:
+    name: my-node-app-deployment
+    replicas: 2
+    labels: node-app
+    container:
+      name:  node-app-container
+      image: gal-image:latest
+      port: 3000
+  Configmap:
+    name: node-app-config
+    ENV: default
+  Svc:
+    name: node-app-service
+    port: 80
