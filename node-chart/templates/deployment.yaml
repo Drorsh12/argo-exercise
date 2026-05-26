@@ -21,5 +21,4 @@ spec:
         envFrom:
         - configMapRef:
             name: {{ .Values.app.Configmap.name }}
-            key: {{ .Values.app.Configmap.ENV }}
         
